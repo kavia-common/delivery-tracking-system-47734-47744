@@ -1,0 +1,64 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Delivery Tracker API",
+    "version": "1.0.0",
+    "description": "RESTful API for managing deliveries, status updates, and history."
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Health endpoint",
+        "tags": ["Health"],
+        "responses": {
+          "200": { "description": "OK" }
+        }
+      }
+    },
+    "/deliveries": {
+      "post": {
+        "summary": "Create a new delivery",
+        "tags": ["Deliveries"],
+        "responses": { "201": { "description": "Created" }, "400": { "description": "Validation error" } }
+      },
+      "get": {
+        "summary": "List deliveries with filters and pagination",
+        "tags": ["Deliveries"],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/deliveries/{id}": {
+      "get": {
+        "summary": "Get delivery by id",
+        "tags": ["Deliveries"],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "OK" }, "404": { "description": "Not Found" } }
+      }
+    },
+    "/deliveries/{id}/status": {
+      "patch": {
+        "summary": "Update delivery status",
+        "tags": ["Deliveries"],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "OK" }, "400": { "description": "Validation error" }, "404": { "description": "Not Found" } }
+      }
+    },
+    "/deliveries/{id}/history": {
+      "get": {
+        "summary": "Get delivery history",
+        "tags": ["Deliveries"],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "OK" }, "404": { "description": "Not Found" } }
+      }
+    },
+    "/seed": {
+      "post": {
+        "summary": "Seed sample deliveries",
+        "tags": ["Deliveries"],
+        "responses": { "201": { "description": "Seeded" } }
+      }
+    }
+  },
+  "components": {},
+  "tags": [{ "name": "Health" }, { "name": "Deliveries" }]
+}

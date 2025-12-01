@@ -1,4 +1,6 @@
-// This file will export middleware as the application grows
+const errorHandler = require('./errorHandler');
+
+// This file aggregates middleware exports
 module.exports = {
-  // Add your middleware here
+  errorHandler,
 };
