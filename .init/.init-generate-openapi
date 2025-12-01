@@ -1,0 +1,4 @@
+{
+    "command": "npm install && node generate_openapi.js",
+    "working_directory": "/home/kavia/workspace/code-generation/delivery-tracking-system-47734-47744/delivery_tracker_backend"
+}
